@@ -3,22 +3,13 @@
 #  or later. See the COPYING file at the top-level directory or at
 #  https://github.com/hitobito/hitobito_generic.
 
-class Group::LocalBoard < Group::Board
+class Group::AlumniBoard < Group::Board
   class President < Role::BoardPresident
-  end
-
-  class VicePresident < Role::BoardVicePresident
-  end
-
-  class Secretary < Role::BoardSecretary
-  end
-
-  class Treasurer < Role::Treasurer
   end
 
   class Member < Role::BoardMember
   end
 
   self.standard_role = Member
-  roles President, VicePresident, Secretary, Treasurer, Member
+  roles President, Member
 end

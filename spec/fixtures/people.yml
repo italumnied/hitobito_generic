@@ -13,23 +13,18 @@ board_leader:
   first_name: Board
   last_name: Leader
   email: board.leader@example.com
-  primary_group: be_board
+  primary_group: federal_board
   contact_data_visible: true
 
-basic_leader:
-  first_name: Basic
-  last_name: Leader
-  email: basic.leader@example.com
-  primary_group: bern
-  contact_data_visible: true
 
 basic_member:
   first_name: Basic
   last_name: Member
   email: basic.member@example.com
-  primary_group: asterix
+  primary_group: federal_board
 
 root:
   company_name: 'Puzzle ITC'
   company: true
   email: <%= Settings.root_email %>
+  primary_group: federal_board

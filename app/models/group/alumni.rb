@@ -3,19 +3,18 @@
 #  or later. See the COPYING file at the top-level directory or at
 #  https://github.com/hitobito/hitobito_generic.
 
-class Group::Region < Group
+class Group::Alumni < Group
   self.layer = true
   self.event_types = [Event, Event::Course]
-  self.default_children = [Group::RegionBoard,
-    Group::RegionOffice,
-    Group::RegionContacts,
-    Group::RegionMembers]
+  self.default_children = [Group::AlumniBoard,
+    Group::AlumniContacts,
+    Group::AlumniMembers]
 
-  children Group::RegionBoard, Group::RegionOffice, Group::RegionCommittee, Group::RegionMembers,
-    Group::RegionContacts, Group::Region, Group::Local
+  children Group::AlumniBoard,
+    Group::AlumniMembers, Group::AlumniContacts
 
   class Administrator < Role
-    self.permissions = [:layer_and_below_full, :contact_data, :finance]
+    self.permissions = [:admin, :layer_and_below_full, :impersonation]
   end
 
   roles Administrator

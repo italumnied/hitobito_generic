@@ -6,19 +6,10 @@
 admin:
   person: admin
   group: ch
-  type: Group::TopLayer::Administrator
+  type: Group::Alumni::Administrator
 
-board_leader:
-  person: board_leader
-  group: be_board
-  type: Group::RegionBoard::President
-
-basic_leader:
-  person: basic_leader
-  group: bern
-  type: Group::Local::MainLeader
 
 basic_member:
   person: basic_member
-  group: asterix
-  type: Group::LocalMembers::ActiveMember
+  group: federal_board
+  type: Group::AlumniMembers::ActiveMember

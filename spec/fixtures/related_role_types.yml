@@ -21,4 +21,4 @@ leader_groups_basic:
 leader_groups_board:
   relation: leaders_group
   relation_type: Subscription
-  role_type: Group::TopLayerBoard::President
+  role_type: Group::AlumniBoard::President

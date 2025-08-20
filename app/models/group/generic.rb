@@ -14,6 +14,6 @@ module Group::Generic
 
     # define global children
 
-    root_types Group::TopLayer
+    root_types Group::AlumniBoard
   end
 end
