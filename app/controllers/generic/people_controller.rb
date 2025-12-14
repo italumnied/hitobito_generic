@@ -7,24 +7,25 @@ module Generic::PeopleController
   extend ActiveSupport::Concern
 
   included do
-    before_render_form :load_titles
-    before_render_form :load_nationalities
+    # before_render_form :load_titles
+    # before_render_form :load_nationalities
 
-    self.permitted_attrs += [
+    self.permitted_attrs += [      
       :additional_languages,
       :advertising,
-      :nationality,
-      :title
+      :title,
+      :ahv,
+      :commissioning
     ]
   end
 
   private
 
-  def load_titles
-    @titles = (Person.pluck(:title).compact + %w[Dr Msc]).uniq.sort
-  end
+  # def load_titles
+  #   @titles = (Person.pluck(:title).compact + %w[Dr Msc]).uniq.sort
+  # end
 
-  def load_nationalities
-    @nationalities = (Person.pluck(:nationality).compact + %w[Schweiz Deutschland]).uniq.sort
-  end
+  # def load_nationalities
+  #   @nationalities = (Person.pluck(:nationality).compact + %w[Schweiz Deutschland]).uniq.sort
+  # end
 end

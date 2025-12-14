@@ -24,7 +24,9 @@ basic_member:
   primary_group: federal_board
 
 root:
-  company_name: 'Puzzle ITC'
+  company_name: 'Alumni ED'
+  first_name: Admin
+  last_name: 'Alumni ED'
   company: true
   email: <%= Settings.root_email %>
   primary_group: federal_board

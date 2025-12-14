@@ -4,5 +4,5 @@
 #  https://github.com/hitobito/hitobito_generic.
 
 class Role::BoardMember < Role
-  self.permissions = [:layer_full, :contact_data, :impersonation]
+  self.permissions = [:layer_full, :contact_data]
 end

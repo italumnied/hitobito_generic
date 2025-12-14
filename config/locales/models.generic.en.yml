@@ -50,5 +50,6 @@ en:
           none: none
           by_members: yes, by members
           by_anyone: yes, by anyone
-        nationality: nationality
-        title: title
+        title: Rank
+        ahv: AHV-Number
+        commissioning: Commissioning

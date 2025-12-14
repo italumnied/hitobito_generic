@@ -57,5 +57,6 @@ fr:
           none: Non
           by_members: Oui, par membres
           by_anyone: Oui, par membres et autres
-        nationality: Nationalité
-        title: Titre
+        title: Grade
+        ahv: numéro AVS
+        commissioning: Brevetage

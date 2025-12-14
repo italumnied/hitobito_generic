@@ -9,8 +9,11 @@
   = f.labeled_input_field :title,
                           data: { provide: :typeahead, source: @titles }
 
-  = f.labeled_input_field :nationality,
-                          data: { provide: :typeahead, source: @nationalities }
+  = f.labeled_input_field :ahv,
+                          data: { provide: :typeahead, source: @ahv }
+
+  = f.labeled_input_field :commissioning,
+                          data: { provide: :typeahead, source: @commissioning }
 
   = f.labeled_input_field :additional_languages,
                           data: { provide: :typeahead, source: @languages }

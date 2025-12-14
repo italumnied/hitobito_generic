@@ -12,6 +12,19 @@ application:
   footer:
     links:
       "Dokumentation": https://hitobito.readthedocs.io
-      "E-Mail an Support": 'mailto:support@hitobito.com'
+      "E-Mail an Support": 'mailto:it@alumni-ed.ch'
 
 root_email: <%= 'it@alumni-ed.ch' %>
+mail_domain: alumni-ed.ch
+
+application:
+  name: alumni-ed  # set same name in email.sender and email.mass_recipient
+
+email:
+  # Sender for all emails sent by the application.
+  # Overwrite in different languages using the settings.email.sender translation key.
+  sender: <%= "alumni-ed <noreply@alumni-ed.ch>" %>
+
+  # If mass emails are sent, this recipient is used in the to field,
+  # while the actual recipients go in the bcc field.
+  mass_recipient: <%= "alumni-ed <noreply@alumni-ed.ch>" %>
