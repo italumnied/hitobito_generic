@@ -12,12 +12,16 @@ module HitobitoGeneric
     module RestrictShowDetails
       def can?(action, subject, *extra_args)
         # Prevent show_details for users with only group_read and contact_data
+        # but allow users to see their own information
         if action == :show_details && subject.is_a?(Person) && user.present?
           user_permissions = user.roles.map(&:permissions).flatten.uniq
           allowed_only = [:group_read, :contact_data]
           is_basic_only = (user_permissions - allowed_only).empty? && user_permissions.any?
           
-          return false if is_basic_only
+          # Allow users to view their own details
+          if is_basic_only && subject.id != user.id
+            return false
+          end
         end
 
         super(action, subject, *extra_args)
