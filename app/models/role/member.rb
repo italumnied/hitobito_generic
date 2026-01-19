@@ -4,5 +4,5 @@
 #  https://github.com/hitobito/hitobito_generic.
 
 class Role::Member < Role
-  self.permissions = [:group_and_below_read]
+  self.permissions = [:group_and_below_read, :contact_data]
 end

@@ -14,7 +14,7 @@ class Group::Alumni < Group
     Group::AlumniMembers, Group::AlumniContacts
 
   class Administrator < Role
-    self.permissions = [:admin, :layer_and_below_full, :impersonation]
+    self.permissions = [:admin, :layer_and_below_full, :impersonation, :show_details]
   end
 
   roles Administrator

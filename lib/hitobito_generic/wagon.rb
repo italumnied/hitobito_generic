@@ -19,6 +19,15 @@ module HitobitoGeneric
       Person.send :include, Generic::Person
 
       PeopleController.send :include, Generic::PeopleController
+
+      # Restrict show_details for users with only basic permissions
+      HitobitoGeneric::AbilityExtension.apply_to(Ability)
+
+      # Configure table displays to hide address fields for basic users
+      ::TableDisplay.register_column(Person, 
+                                      ::TableDisplays::PublicColumn,
+                                      [:email, :company_name, :gender, :birthday, :title, 
+                                       :additional_languages, :commissioning, :advertising])
     end
 
     initializer "hitobito_generic.add_settings" do |_app|
