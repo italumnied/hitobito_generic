@@ -8,7 +8,7 @@ module Generic::Person
   ADVERTISINGS = %w[none by_members by_anyone].freeze
 
   included do
-    Person::PUBLIC_ATTRS << :title << :additional_languages << :commissioning << :advertising
+    Person::PUBLIC_ATTRS << :title << :additional_languages << :commissioning << :advertising << :profession
 
     i18n_enum :advertising, ADVERTISINGS
     i18n_setter :advertising, ADVERTISINGS
