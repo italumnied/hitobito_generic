@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_12_14_124452) do
+ActiveRecord::Schema[8.0].define(version: 2026_01_24_000000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -1030,6 +1030,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_14_124452) do
     t.string "advertising"
     t.string "ahv"
     t.string "commissioning"
+    t.string "profession"
     t.virtual "search_column", type: :tsvector, as: "to_tsvector('simple'::regconfig, ((((((((((((((((((((((COALESCE((first_name)::text, ''::text) || ' '::text) || COALESCE((last_name)::text, ''::text)) || ' '::text) || COALESCE((company_name)::text, ''::text)) || ' '::text) || COALESCE((nickname)::text, ''::text)) || ' '::text) || COALESCE((email)::text, ''::text)) || ' '::text) || COALESCE((street)::text, ''::text)) || ' '::text) || COALESCE((housenumber)::text, ''::text)) || ' '::text) || COALESCE((zip_code)::text, ''::text)) || ' '::text) || COALESCE((town)::text, ''::text)) || ' '::text) || COALESCE((country)::text, ''::text)) || ' '::text) ||\nCASE\n    WHEN (birthday IS NOT NULL) THEN (((((EXTRACT(year FROM birthday))::text || '-'::text) || lpad((EXTRACT(month FROM birthday))::text, 2, '0'::text)) || '-'::text) || lpad((EXTRACT(day FROM birthday))::text, 2, '0'::text))\n    ELSE ''::text\nEND) || ' '::text) || COALESCE(additional_information, ''::text)))", stored: true
     t.index ["authentication_token"], name: "index_people_on_authentication_token"
     t.index ["confirmation_token"], name: "index_people_on_confirmation_token", unique: true

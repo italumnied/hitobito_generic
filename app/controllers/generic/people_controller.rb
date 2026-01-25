@@ -15,7 +15,8 @@ module Generic::PeopleController
       :advertising,
       :title,
       :ahv,
-      :commissioning
+      :commissioning,
+      :profession
     ]
   end
 
