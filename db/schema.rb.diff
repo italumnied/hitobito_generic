@@ -1031,7 +1031,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_25_142227) do											     |
 																		     >	    t.string "ahv"
 																		     >	    t.string "commissioning"
 																		     >	    t.string "profession"
-																		     >	    t.virtual "search_column", type: :tsvector, as: "to_tsvector('simple'::regconfig, ((((((((((((((((((((((COALESCE((first_name)::text, ''::text) |
+																		     >	    t.virtual "search_column", type: :tsvector, as: "to_tsvector('simple'::regconfig, ((((((((((((((((((((((((COALESCE((first_name)::text, ''::text)
     t.index ["authentication_token"], name: "index_people_on_authentication_token"									    t.index ["authentication_token"], name: "index_people_on_authentication_token"
     t.index ["confirmation_token"], name: "index_people_on_confirmation_token", unique: true								    t.index ["confirmation_token"], name: "index_people_on_confirmation_token", unique: true
     t.index ["email"], name: "index_people_on_email", unique: true											    t.index ["email"], name: "index_people_on_email", unique: true
