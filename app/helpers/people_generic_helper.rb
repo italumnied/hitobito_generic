@@ -17,4 +17,15 @@ module PeopleGenericHelper
         rel: "noopener")
     end
   end
+  
+  def can_export_details?
+    # Check if user has show_details permission
+    user_roles = current_user.roles
+    user_permissions = user_roles.map(&:permissions).flatten.uniq
+    allowed_only = [:group_read, :contact_data]
+    is_basic_only = (user_permissions - allowed_only).empty? && user_permissions.any?
+    
+    !is_basic_only
+  end
 end
+

@@ -18,9 +18,31 @@ module Generic::PeopleController
       :commissioning,
       :profession
     ]
+    
+    before_action :check_export_permission, only: [:index, :show, :show]
+  end  
+  def show
+    # Check if user is trying to export and restrict for basic users
+    check_export_permission
+    super
   end
-
   private
+  
+  def check_export_permission
+    # Prevent all exports for users without show_details permission
+    export_formats = [:csv, :xlsx, :pdf, :vcf]
+    if export_formats.include?(request.format.symbol)
+      user_roles = current_user.roles
+      user_permissions = user_roles.map(&:permissions).flatten.uniq
+      allowed_only = [:group_read, :contact_data]
+      is_basic_only = (user_permissions - allowed_only).empty? && user_permissions.any?
+      
+      if is_basic_only
+        # Deny access for basic users trying to export in any format
+        head :forbidden
+      end
+    end
+  end
 
   # def load_titles
   #   @titles = (Person.pluck(:title).compact + %w[Dr Msc]).uniq.sort
@@ -30,3 +52,4 @@ module Generic::PeopleController
   #   @nationalities = (Person.pluck(:nationality).compact + %w[Schweiz Deutschland]).uniq.sort
   # end
 end
+
