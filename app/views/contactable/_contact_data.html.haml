@@ -6,11 +6,15 @@
 %address
   = contactable.contact_name
   = render_extensions :contact_name_attrs
-  - if can_show_details
-    = contactable.complete_address if postal
   = contact.primary_email
   = contact.all_additional_emails(only_public)
   = contact.all_phone_numbers(only_public)
+  - unless contact.profession.blank?
+    %div.profession
+      %strong= Person.human_attribute_name(:profession)
+      = contact.profession
+  - if can_show_details
+    = contactable.complete_address if postal
   = contact.all_additional_addresses(only_public)
   = render_extensions :address_attrs
 

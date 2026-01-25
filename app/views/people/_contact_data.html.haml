@@ -1,0 +1,23 @@
+-#  Copyright (c) 2012-2013, Jungwacht Blauring Schweiz. This file is part of
+-#  hitobito and licensed under the Affero General Public License version 3
+-#  or later. See the COPYING file at the top-level directory or at
+-#  https://github.com/hitobito/hitobito.
+
+.contactable.well
+  .profil-big.float-end
+    .crop-to-square
+      = image_tag(upload_url(person, :picture, size: '72x72', default: 'profil'), size: '72x72')
+  .profile-image-overlay
+    .img
+      .crop-to-square
+        = image_tag(upload_url(person, :picture, size: '512x512', default: 'profil'), size: '512x512')
+  .contact-marker.float-end
+    - if can?(:show_details, person)
+      =  link_to_address person
+
+  = render 'contactable/contact_data',
+           contactable: person,
+           postal: true,
+           only_public: only_public
+
+  = render "people/household_attrs", person: person
