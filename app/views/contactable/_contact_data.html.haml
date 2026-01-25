@@ -9,7 +9,7 @@
   = contact.primary_email
   = contact.all_additional_emails(only_public)
   = contact.all_phone_numbers(only_public)
-  - unless contact.profession.blank?
+  - if contact.respond_to?(:profession) && !contact.profession.blank?
     %div.profession
       %strong= Person.human_attribute_name(:profession)
       = contact.profession
