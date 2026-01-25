@@ -10,7 +10,7 @@ module Generic::Person
   included do
     Person::PUBLIC_ATTRS << :title << :additional_languages << :commissioning << :advertising << :profession
 
-    Person::SEARCHABLE_ATTRS << :beruf
+    Person::SEARCHABLE_ATTRS << :profession
 
     i18n_enum :advertising, ADVERTISINGS
     i18n_setter :advertising, ADVERTISINGS

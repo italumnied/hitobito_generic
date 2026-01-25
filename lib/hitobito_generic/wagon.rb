@@ -27,7 +27,7 @@ module HitobitoGeneric
       ::TableDisplay.register_column(Person, 
                                       ::TableDisplays::PublicColumn,
                                       [:email, :company_name, :gender, :birthday, :title, 
-                                       :additional_languages, :commissioning, :advertising])
+                                       :additional_languages, :commissioning, :profession, :advertising])
     end
 
     initializer "hitobito_generic.add_settings" do |_app|
